@@ -2,7 +2,7 @@ void draw() {
     background(200);
     noStroke();
 
-    fill(0, 0, 255)
+    fill(0, 0, 255);
     zeichneHaus(50, 220, 100, 100);
 
     fill(255, 0, 0);
