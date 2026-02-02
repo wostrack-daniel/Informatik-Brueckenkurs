@@ -5,11 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatik Dateien</title>
 </head>
+
+<style>
+  /* 1. Das Standard-Dreieck in allen Browsern entfernen */
+  summary {
+    list-style: none; /* Für moderne Browser */
+  }
+  summary::-webkit-details-marker {
+    display: none; /* Für Safari und ältere Chrome-Versionen */
+  }
+
+  /* 2. Dein PNG-Icon direkt vor der Überschrift einfügen */
+  summary h1::before {
+    content: "";
+    display: inline-block;
+    width: 24px;  /* Breite deines Icons */
+    height: 24px; /* Höhe deines Icons */
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url(/Informatik_AG_10/assets/images/icon/fold.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  /* 3. Optional: Icon ändern oder drehen, wenn geöffnet */
+  details[open] summary h1::before {
+    transform: rotate(90deg); /* Dreht das PNG um 90 Grad */
+    /* Oder ein anderes Bild laden: background-image: url('offen-icon.png'); */
+  }
+</style>
+
 <body>
     <h1>Informatik Brückenkurs Klasse 10</h1>
 
-    <h2>Kapitel I.</h2>
-    <h3>1. Programmieren mit Java in Processing</h3>
+    <details>
+        <summary>
+            <h1 style="display: inline; font-size: 2em; margin: 0;">Kapitel I</h1>
+        </summary>
+        <p><h3>1. Programmieren mit Java in Processing</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.1 Programmieren mit JavaProcessing/Algorithmen 01 - Einstieg Programmierung.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
@@ -25,6 +58,9 @@
     <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.4 Flappy Bird/Algorithmen 04 - Flappy Bird.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.4 Flappy Bird/Algorithmen 04 - Variablen.pdf" download>
+        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
+    </a>
     <h3>5. Zählschleife | For-Schleife</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.5 Zählschleife/Algorithmen 05 - Zählschleife.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
@@ -32,15 +68,24 @@
     <h3>6. Unterprogramme</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.3 Bedingungen und Verzweigungen/Algorithmen 03 - Verzweigungen.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
+    </a></p>
+    </details>
 
-    <h2>Kapitel II.</h2>
-    <h3>1. Programmieren mit Java in Processing</h3>
+    <br>
+
+    <details>
+        <summary>
+            <h1 style="display: inline; font-size: 2em; margin: 0;">Kapitel II</h1>
+        </summary>
+    <h3>1. Binär- und Hexadezimalsystem</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.1 Binär- und Hexadezimalsystem/DatenUndCodierung 01 - Binär- und Hexadezimalsystem.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.1 Binär- und Hexadezimalsystem/HexEditor.jar" download>
+        <img src="/Informatik_AG_10/assets/images/icon/jar 2.png" alt="JAR-Datei" style="width: 30px;">
+    </a>
 
-    <h3>2. Daten in Java</h3>
+    <h3>2. Informationen und Daten</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.2 Daten in Java/DatenUndCodierung 02 - Daten in Java.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
@@ -54,17 +99,45 @@
     <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.4 Digitalisierung von Grafiken/DatenUndCodierung 04 - Digitalisierung von Grafiken.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
+    </details>
 
-    <h2>Kapitel III.</h2>
+    <br>
 
+    <details>
+        <summary>
+            <h1 style="display: inline; font-size: 2em; margin: 0;">Kapitel III</h1>
+        </summary>
     <h3>1. Unterprogramme mit Rechnungen</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/III. Unterprogramme/3.1 Unterprogramme mit Rechnungen/Unterprogramme 01 - Unterprogramme mit Rechnungen.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Algorithmen 01 - Unterprogramme mit Rechnungen [Teil2].pdf" download>
+        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
+    </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A2_DivisionMitRest_Vorlage.zip" download>
+        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
+    </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A3_Collatz_Vorlage.zip" download>
+        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
+    </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A4_CollatzGUI_Vorlage.zip" download>
+        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
+    </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A5_Potenzen_Vorlage.zip" download>
+        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
+    </a>
+    
     <h3>2. Unterprogramme mit Listen</h3>
     <a href="/Informatik_AG_10/assets/sourcedate/III. Unterprogramme/3.2 Unterprogramme mit Listen/Unterprogramme 02 - Unterprogramme mit Listen.pdf" download>
         <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
     </a>
-
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.2 Strings/3.2 Strings/Kap5_Vorlage_Texte.zip" download>
+        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
+    </a>
+    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.2 Strings/3.2 Strings/Kap5A1_JamesBond_Vorlage.zip" download>
+        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
+    </a>
+    </details>
+    
 </body>
 </html>
