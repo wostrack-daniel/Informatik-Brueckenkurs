@@ -51,3 +51,6 @@
     float: none;
   }
 }
+
+#menu { display: none; background: #eee; padding: 10px; } 
+.burger { font-size: 30px; cursor: pointer; }
