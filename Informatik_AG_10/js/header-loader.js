@@ -33,17 +33,28 @@ function loadHeader() {
             
             console.log('Header geladen und eingefügt');
             
-            // Menü-Konfiguration laden und initialisieren
-            setTimeout(() => {
-                if (typeof generateMenuFromConfig === 'function') {
-                    generateMenuFromConfig();
-                    console.log('Menu generiert');
+            // Dynamisch die zentrale Menü-Konfiguration laden (menuConfig.js),
+            // danach Menü generieren und Login-UI aktualisieren.
+            const cfgScript = document.createElement('script');
+            cfgScript.src = '/Informatik_AG_10/js/menuConfig.js';
+            cfgScript.async = false;
+            cfgScript.onload = () => {
+                console.log('menuConfig.js geladen');
+                try {
+                    if (typeof generateMenuFromConfig === 'function') {
+                        generateMenuFromConfig();
+                        console.log('Menu generiert');
+                    }
+                    if (typeof updateLoginUI === 'function') {
+                        updateLoginUI();
+                        console.log('Login UI aktualisiert');
+                    }
+                } catch (e) {
+                    console.error('Fehler bei Init nach Laden von menuConfig:', e);
                 }
-                if (typeof updateLoginUI === 'function') {
-                    updateLoginUI();
-                    console.log('Login UI aktualisiert');
-                }
-            }, 100);
+            };
+            cfgScript.onerror = (e) => console.error('Fehler beim Laden von menuConfig.js', e);
+            document.head.appendChild(cfgScript);
         })
         .catch(error => {
             console.error('Fehler beim Laden des Headers:', error);

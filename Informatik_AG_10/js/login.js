@@ -43,6 +43,7 @@ function handleLogout() {
 
 // UI aktualisieren
 function updateLoginUI() {
+    console.log('updateLoginUI called, currentUser:', currentUser);
     const loginForm = document.getElementById('login-form');
     const userInfo = document.getElementById('login-user-info');
     const statusMsg = document.getElementById('login-status-msg');
@@ -88,16 +89,14 @@ function updateLoginUI() {
     // Header profile icon (oben rechts neben dem Login-Reiter)
     const headerIcon = document.getElementById('header-profile-icon');
     if (headerIcon) {
-        if (currentUser && currentUser.avatar) {
-            headerIcon.src = currentUser.avatar;
-            headerIcon.style.display = '';
-            headerIcon.title = currentUser.name || 'Profil';
-            // ensure container is visible
-            const container = document.getElementById('header-profile-container');
-            if (container) container.style.display = 'flex';
-        } else {
-            headerIcon.style.display = 'none';
-        }
+        // use avatar when available, otherwise use default user template icon
+        const defaultIcon = '/Informatik_AG_10/assets/images/icon/user interface/user.png';
+        headerIcon.src = (currentUser && currentUser.avatar) ? currentUser.avatar : defaultIcon;
+        headerIcon.style.display = '';
+        headerIcon.title = (currentUser && currentUser.name) ? currentUser.name : 'Profil';
+        // ensure container is visible (so clicking the icon opens login when logged out)
+        const container = document.getElementById('header-profile-container');
+        if (container) container.style.display = 'flex';
     }
     // Update pill name / visibility (pill now wraps icon and name)
     const headerName = document.getElementById('header-profile-name');
@@ -178,6 +177,7 @@ function handleLoginSubmit(event) {
 
 // Menü aus Konfiguration generieren
 function generateMenuFromConfig() {
+    console.log('generateMenuFromConfig called, menuConfig:', typeof menuConfig !== 'undefined' ? menuConfig : 'undefined');
     const menuContainer = document.querySelector('.menu');
     if (!menuContainer) return;
 
@@ -224,7 +224,9 @@ function generateMenuFromConfig() {
                 <div id="login-status-msg" class="login-status" style="display: none;"></div>
                 <div id="login-user-info" class="login-user-info" style="display: none;"></div>
                 <form id="login-form" class="login-form" onsubmit="handleLoginSubmit(event)">
+                    <label for="username" style="font-size:13px;color:#333;">Benutzername</label>
                     <input type="text" id="username" placeholder="Benutzername" required>
+                    <label for="password" style="font-size:13px;color:#333;">Passwort</label>
                     <input type="password" id="password" placeholder="Passwort" required>
                     <button type="submit">Anmelden</button>
                 </form>

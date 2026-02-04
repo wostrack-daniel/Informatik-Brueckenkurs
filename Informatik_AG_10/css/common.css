@@ -13,7 +13,7 @@ summary::-webkit-details-marker { display: none; }
 .navbar .brand { display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 18px; }
 .navbar .brand img { width: 30px; height: 30px; }
 
-.menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex: 1; justify-content: center; white-space: nowrap; overflow: hidden; }
+.menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex: 1; justify-content: center; white-space: nowrap; overflow: visible; }
 .menu-item { position: relative; }
 .menu-link { display: flex; align-items: center; gap: 8px; padding: 8px 12px; color: black; text-decoration: none; border-radius: 6px; flex-shrink: 1; min-width: 0; }
 .menu-link:hover { background: #ddd; }
@@ -74,6 +74,13 @@ summary::-webkit-details-marker { display: none; }
     border-radius: 4px;
     font-size: 14px;
     font-family: Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form label {
+    font-size: 13px;
+    color: #333;
 }
 
 .login-form input:focus {
@@ -210,6 +217,11 @@ summary::-webkit-details-marker { display: none; }
     border-radius: 50%;
     object-fit: cover;
     display: block;
+}
+
+/* zusätzliche schwarze Umrandung direkt um das Bild */
+#header-profile-pill img#header-profile-icon {
+    border: 2px solid #000;
 }
 
 /* sichtbarer Zustand der Pill - Name fährt nach links aus */
