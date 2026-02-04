@@ -5,28 +5,32 @@
       "username": "admin",
       "password": "admin123",
       "name": "Administrator",
-      "role": "admin"
+      "role": "admin",
+      "avatar": "/Informatik_AG_10/assets/images/icon/user interface/dashboard.png"
     },
     {
       "id": 2,
       "username": "lehrer",
       "password": "lehrer123",
       "name": "Lehrer",
-      "role": "teacher"
+      "role": "teacher",
+      "avatar": "/Informatik_AG_10/assets/images/icon/user interface/group.png"
     },
     {
       "id": 3,
       "username": "schueler",
       "password": "schueler123",
       "name": "Schüler",
-      "role": "student"
+      "role": "student",
+      "avatar": "/Informatik_AG_10/assets/images/icon/user interface/user.png"
     },
     {
       "id": 4,
       "username": "test",
       "password": "test",
       "name": "Testuser",
-      "role": "student"
+      "role": "student",
+      "avatar": "/Informatik_AG_10/assets/images/icon/user interface/user.png"
     }
   ]
 }
