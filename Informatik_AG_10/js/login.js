@@ -90,23 +90,31 @@ function updateLoginUI() {
     if (headerIcon) {
         if (currentUser && currentUser.avatar) {
             headerIcon.src = currentUser.avatar;
-            headerIcon.style.display = 'inline-block';
+            headerIcon.style.display = '';
             headerIcon.title = currentUser.name || 'Profil';
+            // ensure container is visible
+            const container = document.getElementById('header-profile-container');
+            if (container) container.style.display = 'flex';
         } else {
             headerIcon.style.display = 'none';
         }
     }
-
-    // Update pill text / visibility
-    const headerPill = document.getElementById('header-profile-pill');
-    if (headerPill) {
+    // Update pill name / visibility (pill now wraps icon and name)
+    const headerName = document.getElementById('header-profile-name');
+    const pill = document.getElementById('header-profile-pill');
+    const headerContainer = document.getElementById('header-profile-container');
+    if (headerName && pill && headerContainer) {
         if (currentUser && currentUser.name) {
-            headerPill.textContent = currentUser.name;
-            headerPill.style.display = 'inline-block';
+            headerName.textContent = currentUser.name;
+            pill.classList.add('has-name');
+            // expand pill for a moment to let CSS transitions adjust
+            setTimeout(() => {
+                pill.classList.add('visible');
+            }, 30);
         } else {
-            headerPill.textContent = '';
-            // keep it inline-block so CSS transitions can run, but empty content keeps it hidden
-            headerPill.style.display = 'inline-block';
+            headerName.textContent = '';
+            pill.classList.remove('visible');
+            pill.classList.remove('has-name');
         }
     }
 
@@ -202,8 +210,11 @@ function generateMenuFromConfig() {
             link.href = 'javascript:void(0)';
             link.onclick = function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 const dropdown = li.querySelector('.login-dropdown');
-                if (dropdown) dropdown.classList.toggle('show');
+                if (dropdown) {
+                    dropdown.classList.toggle('show');
+                }
             };
 
             const loginDropdown = document.createElement('div');
@@ -211,7 +222,7 @@ function generateMenuFromConfig() {
             
             loginDropdown.innerHTML = `
                 <div id="login-status-msg" class="login-status" style="display: none;"></div>
-                <div id="login-user-info" style="display: none;"></div>
+                <div id="login-user-info" class="login-user-info" style="display: none;"></div>
                 <form id="login-form" class="login-form" onsubmit="handleLoginSubmit(event)">
                     <input type="text" id="username" placeholder="Benutzername" required>
                     <input type="password" id="password" placeholder="Passwort" required>
@@ -251,72 +262,46 @@ function generateMenuFromConfig() {
 
     // Schließe Dropdown wenn anderswo geklickt wird
     document.addEventListener('click', function(event) {
-        const loginItem = document.querySelector('.menu-item #login-form');
-        if (loginItem && !event.target.closest('.menu-item')) {
-            const dropdown = document.querySelector('.login-dropdown');
-            if (dropdown) {
+        const allDropdowns = document.querySelectorAll('.login-dropdown');
+        if (!event.target.closest('.menu-item')) {
+            allDropdowns.forEach(dropdown => {
                 dropdown.classList.remove('show');
-            }
+            });
         }
     });
 
-    // Stelle sicher, dass ein Header-Profil-Container (Icon + Pill) existiert und direkt neben dem Menü steht
+    // Stelle sicher, dass ein Header-Profil-Container (Icon + Pill) existiert und direkt auf der rechten Seite der Navbar steht
     (function ensureHeaderIcon() {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
+        const container = document.getElementById('header-profile-container');
+        if (!container) return;
 
-        let container = document.getElementById('header-profile-container');
-        if (!container) {
-            container = document.createElement('div');
-            container.id = 'header-profile-container';
-            container.style.display = 'inline-flex';
-            container.style.alignItems = 'center';
+        // Zeige den Container
+        container.style.display = 'flex';
 
-            // Erzeuge das Icon
-            const headerIcon = document.createElement('img');
-            headerIcon.id = 'header-profile-icon';
-            headerIcon.alt = 'Profil';
-            headerIcon.style.display = 'none';
-            headerIcon.width = 36;
-            headerIcon.height = 36;
+        // Hover: beim Überfahren wird die Pill sichtbar (CSS regelt Animation)
+        container.addEventListener('mouseenter', function() {
+            const p = document.getElementById('header-profile-pill');
+            if (p) p.classList.add('visible');
+        });
+        container.addEventListener('mouseleave', function() {
+            const p = document.getElementById('header-profile-pill');
+            if (p) p.classList.remove('visible');
+        });
 
-            // Erzeuge die Pill (Name), standardmäßig zusammengeklappt
-            const pill = document.createElement('span');
-            pill.id = 'header-profile-pill';
-            // sichtbar im DOM, aber dank CSS standardmäßig eingeklappt (max-width: 0)
-            pill.style.display = 'inline-block';
-
-            container.appendChild(headerIcon);
-            container.appendChild(pill);
-
-            // Füge das Container-Element unmittelbar nach dem Menü ein (neben dem Login-Reiter)
-            const menuContainer = document.querySelector('.menu');
-            if (menuContainer && menuContainer.parentNode) {
-                if (menuContainer.nextSibling) menuContainer.parentNode.insertBefore(container, menuContainer.nextSibling);
-                else menuContainer.parentNode.appendChild(container);
-            } else {
-                navbar.appendChild(container);
-            }
-
-            // Hover: beim Überfahren wird die Pill sichtbar (CSS regelt Animation)
-            container.addEventListener('mouseenter', function() {
-                const p = document.getElementById('header-profile-pill');
-                if (p) p.classList.add('visible');
-            });
-            container.addEventListener('mouseleave', function() {
-                const p = document.getElementById('header-profile-pill');
-                if (p) p.classList.remove('visible');
-            });
-
-            // Klick auf das Icon öffnet Account oder zeigt Login-Dropdown
-            headerIcon.addEventListener('click', function() {
+        // Klick auf das Icon öffnet Account oder zeigt Login-Dropdown
+        const headerIcon = document.getElementById('header-profile-icon');
+        if (headerIcon) {
+            headerIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
                 if (currentUser) {
                     window.location.href = '/Informatik_AG_10/html/account.html';
                 } else {
                     const loginLi = Array.from(document.querySelectorAll('.menu-item')).find(li => li.querySelector('.login-dropdown'));
                     if (loginLi) {
                         const dropdown = loginLi.querySelector('.login-dropdown');
-                        if (dropdown) dropdown.classList.toggle('show');
+                        if (dropdown) {
+                            dropdown.classList.toggle('show');
+                        }
                     }
                 }
             });

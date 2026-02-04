@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Profil - Informatik Dateien</title>
+
+    <!-- CSS-Dateien laden -->
+    <link rel="stylesheet" href="/Informatik_AG_10/css/common.css">
+    <link rel="stylesheet" href="/Informatik_AG_10/css/style.css">
+
+    <!-- Menü-Konfiguration (muss vor login.js sein) -->
+    <script>
+        const menuConfig = {
+            items: [
+                {
+                    id: 'home',
+                    label: 'Home',
+                    href: '/Informatik_AG_10/html/index.html'
+                },
+                {
+                    id: 'kurse',
+                    label: 'Kurse',
+                    href: '/Informatik_AG_10/html/index.html'
+                },
+                {
+                    id: 'downloads',
+                    label: 'Downloads',
+                    href: '/Informatik_AG_10/html/index.html'
+                },
+                {
+                    id: 'login',
+                    label: 'Login',
+                    href: '#login',
+                    isLogin: true
+                }
+            ]
+        };
+    </script>
+
+    <style>
+        .account-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .account-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .account-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #0066cc;
+            object-fit: cover;
+            background: #e0e0e0;
+        }
+
+        .account-info h1 {
+            margin: 0 0 10px 0;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .account-info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .account-info .role {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .account-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .account-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .account-section {
+            margin-bottom: 30px;
+        }
+
+        .account-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        .account-detail {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .account-detail label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .account-detail value {
+            color: #666;
+            display: block;
+        }
+
+        .login-prompt {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .login-prompt h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-prompt p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .login-prompt .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header wird von header-loader.js eingefügt -->
+
+    <div class="account-container">
+        <!-- Login-Aufforderung (wird angezeigt, wenn nicht angemeldet) -->
+        <div id="login-prompt" class="login-prompt" style="display: none;">
+            <h2>Bitte melden Sie sich an</h2>
+            <p>Um Ihre Profilseite zu sehen, müssen Sie sich zunächst anmelden.</p>
+            <a href="/Informatik_AG_10/html/index.html" class="btn btn-primary">Zur Startseite</a>
+        </div>
+
+        <!-- Profil-Inhalt (wird angezeigt, wenn angemeldet) -->
+        <div id="profile-content" style="display: none;">
+            <!-- Profil-Header -->
+            <div class="account-header">
+                <img id="profile-avatar" class="account-avatar" src="" alt="Profilbild">
+                <div class="account-info">
+                    <h1 id="profile-name">-</h1>
+                    <p id="profile-username">-</p>
+                    <span id="profile-role" class="role">-</span>
+                    <div class="account-actions">
+                        <button class="btn btn-primary" onclick="editProfile()">Profil bearbeiten</button>
+                        <button class="btn btn-danger" onclick="handleLogout()">Abmelden</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profil-Details -->
+            <div class="account-content">
+                <!-- Informationen -->
+                <div class="account-section">
+                    <h2>Persönliche Informationen</h2>
+                    <div class="account-detail">
+                        <label>Name:</label>
+                        <value id="info-name">-</value>
+                    </div>
+                    <div class="account-detail">
+                        <label>Benutzername:</label>
+                        <value id="info-username">-</value>
+                    </div>
+                    <div class="account-detail">
+                        <label>Rolle:</label>
+                        <value id="info-role">-</value>
+                    </div>
+                </div>
+
+                <!-- Sicherheit -->
+                <div class="account-section">
+                    <h2>Sicherheit</h2>
+                    <div class="account-detail">
+                        <label>Passwort:</label>
+                        <p style="color: #999; margin: 5px 0 0 0;">••••••••</p>
+                        <button class="btn btn-primary" style="margin-top: 10px;" onclick="changePassword()">Passwort ändern</button>
+                    </div>
+                </div>
+
+                <!-- Account-Verwaltung -->
+                <div class="account-section">
+                    <h2>Account-Verwaltung</h2>
+                    <p style="color: #666; margin-bottom: 15px;">Optionen zur Verwaltung Ihres Accounts</p>
+                    <button class="btn btn-danger" onclick="deleteAccount()">Account löschen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/Informatik_AG_10/js/login.js"></script>
+    <script src="/Informatik_AG_10/js/header-loader.js"></script>
+
+    <script>
+        // Funktion zum Aktualisieren des Profils
+        function updateProfileDisplay() {
+            const loginPrompt = document.getElementById('login-prompt');
+            const profileContent = document.getElementById('profile-content');
+
+            if (currentUser) {
+                // Benutzer ist angemeldet - zeige Profil
+                loginPrompt.style.display = 'none';
+                profileContent.style.display = 'block';
+
+                // Fülle die Profil-Informationen
+                document.getElementById('profile-avatar').src = currentUser.avatar || '';
+                document.getElementById('profile-name').textContent = currentUser.name || '-';
+                document.getElementById('profile-username').textContent = `@${currentUser.username}` || '-';
+                document.getElementById('profile-role').textContent = currentUser.role || '-';
+
+                document.getElementById('info-name').textContent = currentUser.name || '-';
+                document.getElementById('info-username').textContent = currentUser.username || '-';
+                document.getElementById('info-role').textContent = currentUser.role || '-';
+            } else {
+                // Benutzer ist nicht angemeldet - zeige Login-Aufforderung
+                loginPrompt.style.display = 'block';
+                profileContent.style.display = 'none';
+            }
+        }
+
+        // Funktionen für Buttons
+        function editProfile() {
+            alert('Profil-Bearbeitung wird bald verfügbar sein.');
+        }
+
+        function changePassword() {
+            alert('Passwort-Änderung wird bald verfügbar sein.');
+        }
+
+        function deleteAccount() {
+            if (confirm('Sind Sie sicher, dass Sie Ihren Account löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.')) {
+                alert('Account-Löschung wird bald verfügbar sein.');
+            }
+        }
+
+        // Beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lade gespeicherte Benutzer-Informationen
+            const stored = localStorage.getItem('currentUser');
+            if (stored) {
+                try {
+                    currentUser = JSON.parse(stored);
+                } catch (e) {
+                    currentUser = null;
+                }
+            }
+
+            // Aktualisiere die Profil-Anzeige
+            updateProfileDisplay();
+        });
+
+        // Überwache Änderungen des Login-Status (z.B. bei Logout)
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'currentUser') {
+                const stored = localStorage.getItem('currentUser');
+                if (stored) {
+                    try {
+                        currentUser = JSON.parse(stored);
+                    } catch (e) {
+                        currentUser = null;
+                    }
+                } else {
+                    currentUser = null;
+                }
+                updateProfileDisplay();
+            }
+        });
+    </script>
+</body>
+</html>

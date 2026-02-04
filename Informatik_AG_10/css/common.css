@@ -9,11 +9,11 @@ summary { list-style: none; }
 summary::-webkit-details-marker { display: none; }
 
 /* Navbar */
-.navbar { position: relative; display: flex; align-items: center; justify-content: space-between; background: #f1f1f1; padding: 12px 16px; }
+.navbar { position: relative; display: flex; align-items: center; justify-content: space-between; background: #f1f1f1; padding: 12px 16px; z-index: 10; }
 .navbar .brand { display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 18px; }
 .navbar .brand img { width: 30px; height: 30px; }
 
-.menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); white-space: nowrap; overflow: hidden; }
+.menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex: 1; justify-content: center; white-space: nowrap; overflow: hidden; }
 .menu-item { position: relative; }
 .menu-link { display: flex; align-items: center; gap: 8px; padding: 8px 12px; color: black; text-decoration: none; border-radius: 6px; flex-shrink: 1; min-width: 0; }
 .menu-link:hover { background: #ddd; }
@@ -57,7 +57,7 @@ summary::-webkit-details-marker { display: none; }
     border-radius: 6px;
     padding: 20px !important;
     display: none;
-    z-index: 30;
+    z-index: 1000;
 }
 
 .login-dropdown.show { display: block !important; }
@@ -183,45 +183,46 @@ summary::-webkit-details-marker { display: none; }
 
 /* Container für Header-Profil (Icon + Pill) */
 #header-profile-container {
-    display: inline-flex;
+    display: flex !important;
     align-items: center;
     gap: 8px;
-    margin-left: 8px;
+    margin-left: auto;
 }
 
-/* Pill mit dem Profilnamen: standardmäßig versteckt (auf 0 Breite), bei Hover fährt sie mit Slide-Animation aus */
-
+/* Pill um das Profil-Icon. Standardmäßig als Kreis, bei Hover/visible fährt der Name nach links aus */
 #header-profile-pill {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 0; /* zusammengeklappt */
-    opacity: 0;
-    transform: translateX(6px);
-    transition: max-width 260ms ease, opacity 200ms ease 60ms, transform 220ms ease, padding 200ms ease;
-    padding: 0; /* padding erst in sichtbarem Zustand setzen */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: inherit;
+    border: 2px solid #000;
     border-radius: 999px;
-    border: 2px solid #000; /* Umrandung */
-    background: inherit; /* gleiche Farbe wie Navbar-Hintergrund */
-    font-size: 14px;
-    line-height: 1;
-    color: #000;
+    padding: 6px; /* initial padding keeps circular shape with small max-width */
+    max-width: 44px; /* roughly icon (36px) + padding */
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 260ms ease, padding 220ms ease, background 120ms ease;
 }
 
-/* sichtbarer Zustand der Pill */
+#header-profile-pill img#header-profile-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* sichtbarer Zustand der Pill - Name fährt nach links aus */
 #header-profile-pill.visible {
-    max-width: 240px; /* genug Platz für Namen */
-    opacity: 1;
-    transform: translateX(0);
+    max-width: 280px; /* genug Platz für Namen */
     padding: 6px 12px;
 }
 
 /* Wenn Container gehovt wird, die Pill ausfahren */
-#header-profile-container:hover #header-profile-pill { max-width: 240px; opacity: 1; transform: translateX(0); }
+#header-profile-container:hover #header-profile-pill { max-width: 280px; padding: 6px 12px; }
 
-/* kleine Darstellung auf sehr kleinen Bildschirmen */
 @media screen and (max-width: 420px) {
-    #header-profile-pill { font-size: 13px; padding: 5px 10px; }
+    #header-profile-pill img#header-profile-icon { width: 30px; height: 30px; }
 }
 
 /* ====== ENDE GEMEINSAME STYLES ====== */

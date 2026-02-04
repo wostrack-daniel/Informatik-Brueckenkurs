@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Test</title>
+    <link rel="stylesheet" href="/Informatik_AG_10/css/common.css">
+    <link rel="stylesheet" href="/Informatik_AG_10/css/style.css">
+    <style>
+        body { padding: 20px; }
+        .debug { background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>Login Test</h1>
+    
+    <nav class="navbar">
+        <div class="brand">
+            <img src="/Informatik_AG_10/assets/images/icon/informatik.png" alt="Icon">
+            <span>Informatik Dateien</span>
+        </div>
+
+        <ul class="menu">
+            <!-- Menü wird dynamisch aus menuConfig generiert -->
+        </ul>
+        
+        <!-- Profile Icon Container -->
+        <div id="header-profile-container" style="display: none; align-items: center; gap: 8px; margin-left: 8px;">
+            <img id="header-profile-icon" alt="Profil" width="36" height="36" style="border-radius: 50%; border: 2px solid #000; cursor: pointer; display: none;">
+            <span id="header-profile-pill" style="display: inline-block; white-space: nowrap; overflow: hidden; max-width: 0; opacity: 0;"></span>
+        </div>
+    </nav>
+
+    <div class="debug">
+        <h2>Debug Informationen:</h2>
+        <p>menuConfig definiert: <span id="debug-config">Nein</span></p>
+        <p>Menü-Items: <span id="debug-items">-</span></p>
+        <p>Header-Profile-Container: <span id="debug-container">Nicht gefunden</span></p>
+        <p>currentUser: <span id="debug-user">Kein Benutzer angemeldet</span></p>
+    </div>
+
+    <!-- Menü-Konfiguration -->
+    <script>
+        const menuConfig = {
+            items: [
+                {
+                    id: 'home',
+                    label: 'Home',
+                    href: '#home'
+                },
+                {
+                    id: 'kurse',
+                    label: 'Kurse',
+                    href: '#kurse'
+                },
+                {
+                    id: 'downloads',
+                    label: 'Downloads',
+                    href: '#downloads'
+                },
+                {
+                    id: 'login',
+                    label: 'Login',
+                    href: '#login',
+                    isLogin: true
+                }
+            ]
+        };
+        
+        // Debug: menuConfig
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('debug-config').textContent = 'Ja';
+            document.getElementById('debug-items').textContent = menuConfig.items.length;
+        });
+    </script>
+
+    <!-- Login Script -->
+    <script src="/Informatik_AG_10/js/login.js"></script>
+
+    <!-- Initialisierung -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug
+            const container = document.getElementById('header-profile-container');
+            document.getElementById('debug-container').textContent = container ? 'Gefunden' : 'Nicht gefunden';
+            
+            // Menü generieren
+            if (typeof generateMenuFromConfig === 'function') {
+                generateMenuFromConfig();
+                console.log('generateMenuFromConfig() aufgerufen');
+            } else {
+                console.error('generateMenuFromConfig() nicht definiert');
+            }
+            
+            // UI aktualisieren
+            if (typeof updateLoginUI === 'function') {
+                updateLoginUI();
+                console.log('updateLoginUI() aufgerufen');
+            } else {
+                console.error('updateLoginUI() nicht definiert');
+            }
+            
+            // Debug currentUser
+            if (typeof currentUser !== 'undefined') {
+                document.getElementById('debug-user').textContent = currentUser ? 'Benutzer: ' + currentUser.name : 'Kein Benutzer angemeldet';
+            }
+        });
+    </script>
+</body>
+</html>
