@@ -254,6 +254,29 @@
     <!-- Google Identity Services -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
+    <script src="/Informatik_AG_10/js/script.js"></script>
+    <script src="/Informatik_AG_10/js/search.js"></script>
+
+    <!-- Menü wird via login.js mit generateMenuFromConfig() generiert -->
+    <script src="/Informatik_AG_10/js/login.js"></script>
+    
+    <!-- Header auf allen Seiten laden -->
+    <script src="/Informatik_AG_10/js/header-loader.js"></script>
+    
+    <!-- Menü initialisieren nach dem Laden von login.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof generateMenuFromConfig === 'function') {
+                generateMenuFromConfig();
+            }
+            if (typeof updateLoginUI === 'function') {
+                updateLoginUI();
+            }
+        });
+    </script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <script>
         // Funktion zum Aktualisieren des Profils
         function updateProfileDisplay() {

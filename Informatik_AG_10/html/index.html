@@ -8,126 +8,216 @@
     <!-- CSS-Dateien laden -->
     <link rel="stylesheet" href="/Informatik_AG_10/css/common.css">
     <link rel="stylesheet" href="/Informatik_AG_10/css/style.css">
+    <link rel="stylesheet" href="/Informatik_AG_10/css/content.css">
 
     <!-- menuConfig wird zentral geladen von /js/menuConfig.js -->
 </head>
 
 <body>
-        <!-- Header wird von header-loader.js eingefügt -->
+    <!-- Header wird von header-loader.js eingefügt -->
     
-    <h1>Informatik Brückenkurs Klasse 10</h1>
-    
-    <details>
-        <summary>
-            <h1 style="display: inline; font-size: 2em; margin: 0;">Kapitel I</h1>
-        </summary>
-        <p><h3>1. Programmieren mit Java in Processing</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.1 Programmieren mit JavaProcessing/Algorithmen 01 - Einstieg Programmierung.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="https://martinrutherking.selfhost.eu/inf7/NetPbmJs/index.html?PAoRgUCAsAECcHRI6AGV61K875uZ2QPyIWI0PIJTKMrpM1qTWofX2cJbrZbDasO7XKi6iejDgh5C5FcuCA=%3D%3D" download>
-        <img src="/Informatik_AG_10/assets/images/icon/internet.jpg" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="https://martinrutherking.selfhost.eu/imp9/ProcessingSketche_Web/" download>
-        <img src="/Informatik_AG_10/assets/images/icon/internet.jpg" alt="PDF-Sheet" style="width: 30px;">
-    <h3>2. Interaktive Sketche</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.2 Interaktive Sketche/Algorithmen 02 - Interaktive Sketche.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <h3>3. Bedingungen und Verzweigungen</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.3 Bedingungen und Verzweigungen/Algorithmen 03 - Verzweigungen.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <h3>4. Flappy Bird | Variablen</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.4 Flappy Bird/Algorithmen 04 - Flappy Bird.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.4 Flappy Bird/Algorithmen 04 - Variablen.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <h3>5. Zählschleife | For-Schleife</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.5 Zählschleife/Algorithmen 05 - Zählschleife.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <h3>6. Unterprogramme</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.3 Bedingungen und Verzweigungen/Algorithmen 03 - Verzweigungen.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a></p>
-    </details>
+    <main class="main-content">
+        <div class="content-header">
+            <h1 class="page-title">Informatik Brückenkurs</h1>
+            <p class="page-subtitle">Klasse 10 - Lernmaterialien und Aufgaben</p>
+        </div>
 
-    <br>
+        <div class="chapters-container">
+            <details class="chapter-card">
+                <summary class="chapter-summary">
+                    <img src="/Informatik_AG_10/assets/images/icon/fold 2.png" alt="Kapitel Icon" class="chapter-icon">
+                    <h2 class="chapter-title">Kapitel I: Algorithmen</h2>
+                    <span class="chapter-toggle">▼</span>
+                </summary>
+                <div class="chapter-content">
+                    <div class="section-group">
+                        <h3 class="section-title">1. Programmieren mit Java in Processing</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.1 Programmieren mit JavaProcessing/Algorithmen 01 - Einstieg Programmierung.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Einstieg Programmierung</span>
+                            </a>
+                            <a href="https://martinrutherking.selfhost.eu/inf7/NetPbmJs/index.html?PAoRgUCAsAECcHRI6AGV61K875uZ2QPyIWI0PIJTKMrpM1qTWofX2cJbrZbDasO7XKi6iejDgh5C5FcuCA=%3D%3D" class="file-link">
+                                <span class="file-icon">🌐</span>
+                                <span>Online Editor</span>
+                            </a>
+                            <a href="https://martinrutherking.selfhost.eu/imp9/ProcessingSketche_Web/" class="file-link">
+                                <span class="file-icon">🌐</span>
+                                <span>Sketche Web</span>
+                            </a>
+                        </div>
+                    </div>
 
-    <details>
-        <summary>
-            <h1 style="display: inline; font-size: 2em; margin: 0;">Kapitel II</h1>
-        </summary>
-    <h3>1. Binär- und Hexadezimalsystem</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.1 Binär- und Hexadezimalsystem/DatenUndCodierung 01 - Binär- und Hexadezimalsystem.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.1 Binär- und Hexadezimalsystem/HexEditor.jar" download>
-        <img src="/Informatik_AG_10/assets/images/icon/jar 2.png" alt="JAR-Datei" style="width: 30px;">
-    </a>
+                    <div class="section-group">
+                        <h3 class="section-title">2. Interaktive Sketche</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.2 Interaktive Sketche/Algorithmen 02 - Interaktive Sketche.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Interaktive Sketche</span>
+                            </a>
+                        </div>
+                    </div>
 
-    <a href="https://martinrutherking.selfhost.eu/inf7/NetPbmJs/index.html?PAoRgUCAsAECcHRI6AGV61K875uZ2QPyIWI0PIJTKMrpM1qTWofX2cJbrZbDasO7XKi6iejDgh5C5FcuCA=%3D%3D" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
+                    <div class="section-group">
+                        <h3 class="section-title">3. Bedingungen und Verzweigungen</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.3 Bedingungen und Verzweigungen/Algorithmen 03 - Verzweigungen.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Verzweigungen</span>
+                            </a>
+                        </div>
+                    </div>
 
-    <h3>2. Informationen und Daten</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.2 Daten in Java/DatenUndCodierung 02 - Daten in Java.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
+                    <div class="section-group">
+                        <h3 class="section-title">4. Flappy Bird | Variablen</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.4 Flappy Bird/Algorithmen 04 - Flappy Bird.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Flappy Bird</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.4 Flappy Bird/Algorithmen 04 - Variablen.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Variablen</span>
+                            </a>
+                        </div>
+                    </div>
 
-    <h3>3. Digitalisierung von Audiodaten</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.3 Digitalisierung von Audiodaten/DatenUndCodierung 03 - Digitalisierung von Audiodaten.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
+                    <div class="section-group">
+                        <h3 class="section-title">5. Zählschleife | For-Schleife</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.5 Zählschleife/Algorithmen 05 - Zählschleife.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Zählschleife</span>
+                            </a>
+                        </div>
+                    </div>
 
-    <h3>4. Digitalisierung von Grafiken</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.4 Digitalisierung von Grafiken/DatenUndCodierung 04 - Digitalisierung von Grafiken.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    </details>
+                    <div class="section-group">
+                        <h3 class="section-title">6. Unterprogramme</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/I. Algorithmen/1.3 Bedingungen und Verzweigungen/Algorithmen 03 - Verzweigungen.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Unterprogramme</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-    <br>
+            <details class="chapter-card">
+                <summary class="chapter-summary">
+                    <img src="/Informatik_AG_10/assets/images/icon/fold 2.png" alt="Kapitel Icon" class="chapter-icon">
+                    <h2 class="chapter-title">Kapitel II: Daten und Codierung</h2>
+                    <span class="chapter-toggle">▼</span>
+                </summary>
+                <div class="chapter-content">
+                    <div class="section-group">
+                        <h3 class="section-title">1. Binär- und Hexadezimalsystem</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.1 Binär- und Hexadezimalsystem/DatenUndCodierung 01 - Binär- und Hexadezimalsystem.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Binär- und Hexadezimalsystem</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.1 Binär- und Hexadezimalsystem/HexEditor.jar" download class="file-link">
+                                <span class="file-icon">🔧</span>
+                                <span>HexEditor</span>
+                            </a>
+                        </div>
+                    </div>
 
-    <details>
-        <summary>
-            <h1 style="display: inline; font-size: 2em; margin: 0;">Kapitel III</h1>
-        </summary>
-    <h3>1. Unterprogramme mit Rechnungen</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Unterprogramme/3.1 Unterprogramme mit Rechnungen/Unterprogramme 01 - Unterprogramme mit Rechnungen.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Algorithmen 01 - Unterprogramme mit Rechnungen [Teil2].pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A2_DivisionMitRest_Vorlage.zip" download>
-        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A3_Collatz_Vorlage.zip" download>
-        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A4_CollatzGUI_Vorlage.zip" download>
-        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A5_Potenzen_Vorlage.zip" download>
-        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
-    </a>
-    
-    <h3>2. Unterprogramme mit Listen</h3>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Unterprogramme/3.2 Unterprogramme mit Listen/Unterprogramme 02 - Unterprogramme mit Listen.pdf" download>
-        <img src="/Informatik_AG_10/assets/images/icon/pdf.png" alt="PDF-Sheet" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.2 Strings/3.2 Strings/Kap5_Vorlage_Texte.zip" download>
-        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
-    </a>
-    <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.2 Strings/3.2 Strings/Kap5A1_JamesBond_Vorlage.zip" download>
-        <img src="/Informatik_AG_10/assets/images/icon/zip.png" alt="ZIP-Datei" style="width: 30px;">
-    </a>
-    </details> 
+                    <div class="section-group">
+                        <h3 class="section-title">2. Informationen und Daten</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.2 Daten in Java/DatenUndCodierung 02 - Daten in Java.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Daten in Java</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section-group">
+                        <h3 class="section-title">3. Digitalisierung von Audiodaten</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.3 Digitalisierung von Audiodaten/DatenUndCodierung 03 - Digitalisierung von Audiodaten.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Digitalisierung von Audiodaten</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section-group">
+                        <h3 class="section-title">4. Digitalisierung von Grafiken</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/II. Daten und Codierung/2.4 Digitalisierung von Grafiken/DatenUndCodierung 04 - Digitalisierung von Grafiken.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Digitalisierung von Grafiken</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="chapter-card">
+                <summary class="chapter-summary">
+                    <img src="/Informatik_AG_10/assets/images/icon/fold 2.png" alt="Kapitel Icon" class="chapter-icon">
+                    <h2 class="chapter-title">Kapitel III: Unterprogramme und Strings</h2>
+                    <span class="chapter-toggle">▼</span>
+                </summary>
+                <div class="chapter-content">
+                    <div class="section-group">
+                        <h3 class="section-title">1. Unterprogramme mit Rechnungen</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Unterprogramme/3.1 Unterprogramme mit Rechnungen/Unterprogramme 01 - Unterprogramme mit Rechnungen.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Unterprogramme mit Rechnungen</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Algorithmen 01 - Unterprogramme mit Rechnungen [Teil2].pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Teil 2</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A2_DivisionMitRest_Vorlage.zip" download class="file-link">
+                                <span class="file-icon">📦</span>
+                                <span>Division mit Rest</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A3_Collatz_Vorlage.zip" download class="file-link">
+                                <span class="file-icon">📦</span>
+                                <span>Collatz</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A4_CollatzGUI_Vorlage.zip" download class="file-link">
+                                <span class="file-icon">📦</span>
+                                <span>Collatz GUI</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.1 Unterprograme mit Rechnungen/Kap1A5_Potenzen_Vorlage.zip" download class="file-link">
+                                <span class="file-icon">📦</span>
+                                <span>Potenzen</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section-group">
+                        <h3 class="section-title">2. Unterprogramme mit Listen</h3>
+                        <div class="file-links">
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Unterprogramme/3.2 Unterprogramme mit Listen/Unterprogramme 02 - Unterprogramme mit Listen.pdf" download class="file-link">
+                                <span class="file-icon">📄</span>
+                                <span>Unterprogramme mit Listen</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.2 Strings/3.2 Strings/Kap5_Vorlage_Texte.zip" download class="file-link">
+                                <span class="file-icon">📦</span>
+                                <span>Texte Vorlage</span>
+                            </a>
+                            <a href="/Informatik_AG_10/assets/sourcedate/III. Algorithmen (Teil 2)/3.2 Strings/3.2 Strings/Kap5A1_JamesBond_Vorlage.zip" download class="file-link">
+                                <span class="file-icon">📦</span>
+                                <span>James Bond</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </main>
     
     <script src="/Informatik_AG_10/js/script.js"></script>
+    <script src="/Informatik_AG_10/js/search.js"></script>
 
     <!-- Menü wird via login.js mit generateMenuFromConfig() generiert -->
     <script src="/Informatik_AG_10/js/login.js"></script>
@@ -148,8 +238,5 @@
     </script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script> 
-    
-    
-
-   </body>
+</body>
 </html>

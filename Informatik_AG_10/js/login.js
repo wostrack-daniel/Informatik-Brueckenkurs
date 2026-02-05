@@ -224,11 +224,23 @@ function generateMenuFromConfig() {
                 <div id="login-status-msg" class="login-status" style="display: none;"></div>
                 <div id="login-user-info" class="login-user-info" style="display: none;"></div>
                 <form id="login-form" class="login-form" onsubmit="handleLoginSubmit(event)">
-                    <label for="username" style="font-size:13px;color:#333;">Benutzername</label>
-                    <input type="text" id="username" placeholder="Benutzername" required>
-                    <label for="password" style="font-size:13px;color:#333;">Passwort</label>
-                    <input type="password" id="password" placeholder="Passwort" required>
-                    <button type="submit">Anmelden</button>
+                    <div class="login-form-group">
+                        <label for="username" style="font-size:13px;color:#333;">Benutzername</label>
+                        <div class="login-pill-individual">
+                            <input type="text" id="username" placeholder="Benutzername" required>
+                        </div>
+                    </div>
+                    <div class="login-form-group">
+                        <label for="password" style="font-size:13px;color:#333;">Passwort</label>
+                        <div class="login-pill-individual">
+                            <input type="password" id="password" placeholder="Passwort" required>
+                        </div>
+                    </div>
+                    <div class="login-pill-wrapper">
+                        <div class="login-pill-together">
+                            <button type="submit">Anmelden</button>
+                        </div>
+                    </div>
                 </form>
             `;
             
