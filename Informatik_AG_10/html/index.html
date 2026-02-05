@@ -16,6 +16,39 @@
 <body>
     <!-- Header wird von header-loader.js eingefügt -->
     
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+        <div class="search-section-inner">
+            <div class="search-bar-wrapper">
+                <div class="search-bar">
+                    <input type="text" id="search-input" class="search-input" placeholder="Suche nach Dateien, Themen oder Kapiteln...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div id="search-results" class="search-results"></div>
+            </div>
+
+            <!-- Filter System -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <span class="filter-label">Kapitel:</span>
+                    <button class="filter-btn filter-btn-active" data-filter="all">Alle</button>
+                    <button class="filter-btn" data-filter="kapitel-1">Kapitel I</button>
+                    <button class="filter-btn" data-filter="kapitel-2">Kapitel II</button>
+                    <button class="filter-btn" data-filter="kapitel-3">Kapitel III</button>
+                </div>
+                
+                <div class="filter-group">
+                    <span class="filter-label">Dateityp:</span>
+                    <button class="filter-btn filter-btn-active" data-filter="all">Alle</button>
+                    <button class="filter-btn" data-filter="pdf">📄 PDF</button>
+                    <button class="filter-btn" data-filter="zip">📦 ZIP</button>
+                    <button class="filter-btn" data-filter="jar">🔧 JAR</button>
+                    <button class="filter-btn" data-filter="link">🌐 Link</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <main class="main-content">
         <div class="content-header">
             <h1 class="page-title">Informatik Brückenkurs</h1>
