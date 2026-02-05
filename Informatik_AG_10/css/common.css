@@ -209,7 +209,7 @@ summary::-webkit-details-marker { display: none; }
     border: 2px solid #000; /* schwarze Linie zur Abgrenzung */
     background: #f9f9f9; /* heller Hintergrund */
     object-fit: cover;
-    object-position: calc(center + 10px);
+    object-position: center;
     display: none; /* standardmäßig ausgeblendet, wird per JS eingeblendet */
     margin-left: 0;
     cursor: pointer;
